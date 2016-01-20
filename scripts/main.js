@@ -3,7 +3,7 @@ import ReactDOM  from 'react-dom';
 import { Router, Route } from 'react-router';
 import { createHistory } from 'history';
 import Slider from 'react-viewport-slider';
-import Iframe from './components/Iframe';
+// import Iframe from './components/Iframe';
 
 import NotFound from './components/NotFound';
 
@@ -14,19 +14,7 @@ var h = require('./helpers');
 */
 
 var App = React.createClass({
-  // getInitialState : function() {
-  //   return {
-  //     fishes : {},
-  //     order : {}
-  //   }
-  // },
-  // addToOrder : function(key) {
-  //   this.state.order[key] = this.state.order[key] + 1 || 1;
-  //   this.setState({ order : this.state.order });
-  // },
-  // renderFish : function(key){
-  //   return <Fish key={key} index={key} details={this.state.fishes[key]} addToOrder={this.addToOrder}/>
-  // },
+
   closeIframe : function() {
     document.querySelector('#work1').style.display = "none";
     document.querySelector('#work2').style.display = "none";
@@ -67,14 +55,6 @@ var App = React.createClass({
         <div className="header_preview">
           <a href="#" onClick={this.closeIframe}>X</a>
         </div>
-        <Iframe id="work1" url="http://www.evolve24.com" width="95%" height="95%" />
-        <Iframe id="work2" url="http://tmn.truman.edu" width="95%" height="95%" />
-        <Iframe id="work3" url="http://apo.truman.edu" width="95%" height="95%" />
-        <Iframe id="work4" url="http://www.racedale.com/portfolio/downtowncinema8/" width="95%" height="95%" />
-        <Iframe id="work5" url="http://www.racedale.com/portfolio/redbarn" width="95%" height="95%" />
-        <Iframe id="work6" url="http://www.racedale.com/blog" width="95%" height="95%" />
-        <Iframe id="work7" url="http://www.racedale.com/portfolio/goetze" width="95%" height="95%" />
-        <Iframe id="work8" url="http://www.racedale.com" width="95%" height="95%" />
 
         <footer>
           <h6 className="copyright">Copyright &copy; Dale Race</h6>
@@ -184,22 +164,60 @@ var PastWork = React.createClass({
         <h2 className="content">Past Work</h2>
         <h5 style={{ textAlign: 'center'}}>Check out a preview of some of the websites that I've made.</h5>
         <div className="work_gallery">
-          <div className="work" style={{ backgroundImage: 'url(./build/img/evolve24.jpg)' }} onClick={this.openIframe1}><span>First</span></div>
-          <div className="work" style={{ backgroundImage: 'url(./build/img/tmn.jpg)' }} onClick={this.openIframe2}><span>Second</span></div>
-          <div className="work" style={{ backgroundImage: 'url(./build/img/apo-truman.jpg)' }} onClick={this.openIframe3}><span>Third</span></div>
-          <div className="work" style={{ backgroundImage: 'url(./build/img/downtowncinema8.jpg)' }} onClick={this.openIframe4}><span>Fourth</span></div>
+          <a href="http://www.evolve24.com" target="_blank">
+            <div className="work" style={{ backgroundImage: 'url(./build/img/evolve24.jpg)' }} >
+              <span>First</span>
+          </div>
+          </a>
+
+          <a href="http://tmn.truman.edu" target="_blank">
+            <div className="work" style={{ backgroundImage: 'url(./build/img/tmn.jpg)' }} >
+              <span>Second</span>
+            </div>
+          </a>
+
+          <a href="http://apo.truman.edu" target="_blank">
+            <div className="work" style={{ backgroundImage: 'url(./build/img/apo-truman.jpg)' }} >
+              <span>Third</span>
+            </div>
+          </a>
+
+          <a href="http://www.racedale.com/portfolio/downtowncinema8/" target="_blank">
+            <div className="work" style={{ backgroundImage: 'url(./build/img/downtowncinema8.jpg)' }} >
+              <span>Fourth</span>
+            </div>
+          </a>
         </div>
+
         <div className="work_gallery">
-          <div className="work" style={{ backgroundImage: 'url(./build/img/redbarn.jpg)' }} onClick={this.openIframe5}><span>Fifth</span></div>
-          <div className="work" style={{ backgroundImage: 'url(./build/img/racedale-blog.jpg)' }} onClick={this.openIframe6}><span>Sixth</span></div>
-          <div className="work" style={{ backgroundImage: 'url(./build/img/goetze.jpg)' }} onClick={this.openIframe7}><span>Seventh</span></div>
-          <div className="work" style={{ backgroundImage: 'url(./build/img/racedale.jpg)' }} onClick={this.openIframe8}><span>Eighth</span></div>
+          <a href="http://www.racedale.com/portfolio/redbarn" target="_blank">
+            <div className="work" style={{ backgroundImage: 'url(./build/img/redbarn.jpg)' }} >
+              <span>Fifth</span>
+            </div>
+          </a>
+
+          <a href="http://www.racedale.com/blog" target="_blank">
+            <div className="work" style={{ backgroundImage: 'url(./build/img/racedale-blog.jpg)' }} >
+              <span>Sixth</span>
+            </div>
+          </a>
+
+          <a href="http://www.racedale.com/portfolio/goetze" target="_blank">
+            <div className="work" style={{ backgroundImage: 'url(./build/img/goetze.jpg)' }} >
+              <span>Seventh</span>
+            </div>
+          </a>
+
+          <a href="http://www.racedale.com/selfpromo" target="_blank">
+            <div className="work" style={{ backgroundImage: 'url(./build/img/racedale.jpg)' }} >
+              <span>Eighth</span>
+            </div>
+          </a>
         </div>
       </div>
     )
   }
 });
-
 
 /*
   Routes
