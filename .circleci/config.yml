@@ -43,15 +43,15 @@ jobs:
 
 # Declare how workflows
 workflows:
-      version: 2
-      test-deploy:
-        jobs:
-          - build
-          - deploy:
-              requires:
-                - build
-              filters:
-                branches:
-                  only: master
+    version: 2
+    test-deploy:
+      jobs:
+        - build
+        - deploy:
+            requires:
+              - build
+            filters:
+              branches:
+                only: master
 
 
