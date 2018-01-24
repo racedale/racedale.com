@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import styled from 'styled-components';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Dale Race</h1>
-        </header>
-        <p className="App-intro">
-          A portfolio site, made in ReactJS. Things are about to get fancy!
-        </p>
-      </div>
-    );
-  }
-}
+const CenteredDiv = styled.div`
+  text-align: center
+`
+
+const App = () => (
+  <CenteredDiv>
+    <header>
+      <h1>Dale Race</h1>
+    </header>
+    <p>
+      A portfolio site, made in ReactJS. Things are about to get fancy!
+    </p>
+  </CenteredDiv>
+);
 
 export default App;
