@@ -1,5 +1,18 @@
+:root {
+  --dark-blue: #2B3D54;
+  --blue-green: #2C5B61;
+  --dark-green: #247065;
+  --green: #60A65F;
+  --yellow: #FFEC97;
+}
 body {
+  background-color: var(--dark-blue);
+  box-sizing: border-box;
+  color: var(--yellow);
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+.text-center {
+  text-align: center;
 }
