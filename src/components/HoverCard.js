@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Rx from 'rxjs/Rx';
+import styled from 'styled-components';
 
-const style = {
-  "boxShadow": "0 1rem 3rem rgba(black, 0.2)",
-  "transformStyle": "preserve-3d"
-}
+const StyledImg = styled.img`
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.8);
+  transform-style: preserve-3d;
+`
 
 class HoverCard extends Component {
   constructor(props) {
@@ -46,12 +47,12 @@ class HoverCard extends Component {
 
   render() {
     return (
-      <img {...this.props} ref={ card => this.hoverCard = card } alt="" style={style} />
+      <StyledImg {...this.props} innerRef={card => this.hoverCard = card} alt="" />
     )
   }
 }
 
-// utility
+// linear interpolation utility: https://codepen.io/rachsmith/post/animation-tip-lerp
 function lerp(start, end) {
   const dx = end.x - start.x;
   const dy = end.y - start.y;
