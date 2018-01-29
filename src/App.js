@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { faAngleLeft, faAngleRight } from '@fortawesome/fontawesome-free-solid'
+
 
 const Container = styled.div`
   display: grid;
@@ -31,13 +34,15 @@ const Description = styled.p`
   grid-column: 5 / 8;
 `
 
-const LeftArrow = styled.div`
+const LeftArrow = styled(FontAwesomeIcon)`
   grid-column-start: 2;
   grid-row-start: 4;
+  align-self: center;
 `
-const RightArrow = styled.div`
-grid-column-start: -3;
-grid-row-start: 4;
+const RightArrow = styled(FontAwesomeIcon)`
+  grid-column-start: -3;
+  grid-row-start: 4;
+  align-self: center;
 `
 const Preview = styled.div`
   grid-column: 3 / 6;
@@ -54,10 +59,10 @@ const App = () => (
     <Description>
       A portfolio site, made in ReactJS. Now on GitLab, things are about to get fancy!
       Now with text that is twice as long because I need to figure out how to get this to layout properly.
+    <LeftArrow icon={faAngleLeft} size="5x"/>
     </Description>
-    <LeftArrow>Prev</LeftArrow>
     <Preview>big ole image</Preview>
-    <RightArrow>Next</RightArrow>
+    <RightArrow icon={faAngleRight} size="5x"/>
   </Container>
 );
 
