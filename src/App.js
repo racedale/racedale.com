@@ -13,7 +13,13 @@ const Container = styled.div`
 const Header = styled.header`
   grid-column: 1 / -1;
   grid-row: span 2;
+  align-self: end;
   background-color: #2C5B61;
+  color: #2B3D54;
+  padding-top: 1rem;
+  margin-bottom: -1rem;
+  letter-spacing: 2rem;
+  text-transform: uppercase;
 `
 
 const Circle = styled.div`
@@ -23,15 +29,18 @@ const Circle = styled.div`
   top: 2%;
   border-radius: 50%;
   background-color: #2C5B61;
-  background:url("images/ren.jpg") center no-repeat;
+  background: url(${props => props.src}) center no-repeat;
   background-size: 250%;
   background-position: 100% 0%;
   box-shadow: 1px 2px 0 #033;
   position: absolute;
 `
 
-const Description = styled.p`
+const Introduction = styled.p`
   grid-column: 5 / 8;
+  line-height: 1.5rem;
+  height: 100px;
+  min-height: 100%;
 `
 
 const LeftArrow = styled(FontAwesomeIcon)`
@@ -44,10 +53,16 @@ const RightArrow = styled(FontAwesomeIcon)`
   grid-row-start: 4;
   align-self: center;
 `
-const Preview = styled.div`
+const Preview = styled.img`
   grid-column: 3 / 6;
   grid-row: 4;
-  height: 200px;
+  max-width: 100%;
+`
+const Description = styled.div`
+  grid-column: 6 / 7;
+  grid-row: 4;
+  line-height: 1.5rem;
+  padding: 0 0.5rem;
 `
 
 const App = () => (
@@ -56,12 +71,16 @@ const App = () => (
     <Header>
       <h1>First Last</h1>
     </Header>
-    <Description>
+    <Introduction>
       A portfolio site, made in ReactJS. Now on GitLab, things are about to get fancy!
       Now with text that is twice as long because I need to figure out how to get this to layout properly.
+    </Introduction>
     <LeftArrow icon={faAngleLeft} size="5x"/>
+    <Preview src="images/test.png"/>
+    <Description>
+      Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
+      Built with: ReactJS, GraphQL, Styled Components
     </Description>
-    <Preview>big ole image</Preview>
     <RightArrow icon={faAngleRight} size="5x"/>
   </Container>
 );
