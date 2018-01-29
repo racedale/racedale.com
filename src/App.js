@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/fontawesome-free-solid'
+import HoverCard from './components/HoverCard'
 
 
 const Container = styled.div`
@@ -53,7 +54,7 @@ const RightArrow = styled(FontAwesomeIcon)`
   grid-row-start: 4;
   align-self: center;
 `
-const Preview = styled.img`
+const StyledHoverCard = styled(HoverCard)`
   grid-column: 3 / 6;
   grid-row: 4;
   max-width: 100%;
@@ -76,7 +77,7 @@ const App = () => (
       Now with text that is twice as long because I need to figure out how to get this to layout properly.
     </Introduction>
     <LeftArrow icon={faAngleLeft} size="5x"/>
-    <Preview src="images/test.png"/>
+    <StyledHoverCard src="images/test.png"/>
     <Description>
       Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
       Built with: ReactJS, GraphQL, Styled Components
