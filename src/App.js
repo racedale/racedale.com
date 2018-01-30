@@ -53,6 +53,7 @@ const RightArrow = styled(FontAwesomeIcon)`
   grid-column-start: -3;
   grid-row-start: 4;
   align-self: center;
+  justify-self: end;
 `
 const StyledHoverCard = styled(HoverCard)`
   grid-column: 3 / 6;
