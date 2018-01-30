@@ -48,12 +48,18 @@ const LeftArrow = styled(FontAwesomeIcon)`
   grid-column-start: 2;
   grid-row-start: 4;
   align-self: center;
+  &:hover {
+    cursor: pointer;
+  }
 `
 const RightArrow = styled(FontAwesomeIcon)`
   grid-column-start: -3;
   grid-row-start: 4;
   align-self: center;
   justify-self: end;
+  &:hover {
+    cursor: pointer;
+  }
 `
 const StyledHoverCard = styled(HoverCard)`
   grid-column: 3 / 6;
@@ -67,6 +73,10 @@ const Description = styled.div`
   padding: 0 0.5rem;
 `
 
+const changeCard = function(event) {
+  console.log(event)
+}
+
 const App = () => (
   <Container className="text-center">
     <Circle src="images/ren.jpg" />
@@ -77,13 +87,13 @@ const App = () => (
       A portfolio site, made in ReactJS. Now on GitLab, things are about to get fancy!
       Now with text that is twice as long because I need to figure out how to get this to layout properly.
     </Introduction>
-    <LeftArrow icon={faAngleLeft} size="5x"/>
+    <LeftArrow icon={faAngleLeft} size="5x" onClick={changeCard} />
     <StyledHoverCard src="images/test.png"/>
     <Description>
       Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
       Built with: ReactJS, GraphQL, Styled Components
     </Description>
-    <RightArrow icon={faAngleRight} size="5x"/>
+    <RightArrow icon={faAngleRight} size="5x" onClick={changeCard} />
   </Container>
 );
 
