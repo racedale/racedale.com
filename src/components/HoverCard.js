@@ -8,9 +8,6 @@ const StyledImg = styled.img`
 `
 
 class HoverCard extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentDidMount() {
     // "this.hoverCard" currently prevents this logic from being put into another file
