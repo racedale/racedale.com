@@ -10,33 +10,38 @@ const StyledImg = styled.img`
 class HoverCard extends Component {
   constructor(props) {
     super(props)
+  }
 
-    const docElm = document.documentElement
+  componentDidMount() {
+    // "this.hoverCard" currently prevents this logic from being put into another file
+    const docElm = this.hoverCard
     const { clientWidth, clientHeight } = docElm
 
     const mouseMove$ = Rx.Observable
-      .fromEvent(docElm, 'mousemove')
-      .map(event => ({
-        x: event.clientX,
-        y: event.clientY
-      }))
+    .fromEvent(docElm, 'mousemove')
+    .map(event => ({
+      x: event.clientX,
+      y: event.clientY
+    }))
 
     const touchMove$ = Rx.Observable
-      .fromEvent(docElm, 'touchmove')
-      .map(event => ({
-        x: event.touches[0].clientX,
-        y: event.touches[0].clientY
-      }))
+    .fromEvent(docElm, 'touchmove')
+    .map(event => ({
+      x: event.touches[0].clientX,
+      y: event.touches[0].clientY
+    }))
+
 
     const animationFrame$ = Rx.Observable.interval(0, Rx.Scheduler.animationFrame)
     const move$ = Rx.Observable.merge(mouseMove$, touchMove$)
     const smoothMove$ = animationFrame$
-      .withLatestFrom(move$, (frame, move) => move)
-      .scan((current, next) => lerp(current, next))
+    .withLatestFrom(move$, (frame, move) => move)
+    .scan((current, next) => lerp(current, next))
 
     smoothMove$.subscribe(pos => {
-      const rotX = (pos.y / clientHeight * -50) + 25
-      const rotY = (pos.x / clientWidth * 50) - 25
+      // needs some math to force the values to end up being between a range of -25 and 25
+      const rotX = Math.round(((pos.y / clientHeight * -35) + 45) * 100) / 100
+      const rotY = Math.round(((pos.x / clientWidth * 35) - 25) * 100) / 100
 
       // "this.hoverCard" currently prevents this logic from being put into another file
       this.hoverCard.style.cssText = `
