@@ -1,14 +1,16 @@
 :root {
+  --dark: #001318;
   --dark-blue: #2B3D54;
   --blue-green: #2C5B61;
-  --dark-green: #247065;
+  --dark-green: #08542E;
   --green: #60A65F;
-  --yellow: #FFEC97;
+  --bright-green: #08A054;
+  --light: #eeefff;
 }
 body {
-  background-color: var(--dark-blue);
+  background-color: var(--light);
   box-sizing: border-box;
-  color: var(--yellow);
+  color: var(--dark);
   margin: 0;
   padding: 0;
   font-family: sans-serif;

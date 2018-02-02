@@ -15,25 +15,27 @@ const Header = styled.header`
   grid-column: 1 / -1;
   grid-row: span 2;
   align-self: end;
-  background-color: #2C5B61;
-  color: #2B3D54;
-  padding-top: 1rem;
-  margin-bottom: -1rem;
+  background-color: var(--dark-green);
+  border-top: 2px solid var(--bright-green);
+  color: var(--light);
+  padding-top: 1.5rem;
   letter-spacing: 2rem;
   text-transform: uppercase;
+  h1 {
+    margin-bottom: -0.5rem;
+  }
 `
 
 const Circle = styled.div`
   width: 100px;
   height: 100px;
   left: 7.5%;
-  top: 2%;
+  top: 5%;
   border-radius: 50%;
-  background-color: #2C5B61;
   background: url(${props => props.src}) center no-repeat;
   background-size: 250%;
   background-position: 100% 0%;
-  box-shadow: 1px 2px 0 #033;
+  box-shadow: 1px 2px 0 var(--dark);
   position: absolute;
 `
 

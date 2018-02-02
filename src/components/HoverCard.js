@@ -8,10 +8,11 @@ const StyledImg = styled.img`
 `
 
 const StyledLabel = styled.label`
-  background-color: #247065;
-  border: 2px solid #2C5B61;
+  box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.8);
+  transform-style: preserve-3d;
+  background-color: var(--bright-green);
   bottom: 2rem;
-  color: #2B3D54;
+  color: var(--dark);
   font-size: 1.5rem;
   font-weight: 900;
   letter-spacing: 0.5rem;
