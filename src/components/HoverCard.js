@@ -7,22 +7,40 @@ const StyledImg = styled.img`
   transform-style: preserve-3d;
 `
 
+const StyledLabel = styled.label`
+  background-color: #247065;
+  border: 2px solid #2C5B61;
+  bottom: 2rem;
+  color: #2B3D54;
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.5rem;
+  padding: 1rem;
+  position: absolute;
+  width: 14rem;
+  z-index: 1;
+`
+
 class HoverCard extends Component {
 
   componentDidMount() {
     // "this.hoverCard" currently prevents this logic from being put into another file
-    const docElm = this.hoverCard
-    const { clientWidth, clientHeight } = docElm
+    const { clientWidth: cardWidth, clientHeight: cardHeight } = this.hoverCard
+    const { clientWidth: docWidth, clientHeight: docHeight } = document.documentElement
+    const cardPos = this.hoverCard.getBoundingClientRect()
+    const widthRatio = cardWidth / docWidth
+    const heightRatio = cardHeight / docHeight
+    console.log(widthRatio, heightRatio)
 
     const mouseMove$ = Rx.Observable
-    .fromEvent(docElm, 'mousemove')
+    .fromEvent(this.hoverCard, 'mousemove')
     .map(event => ({
       x: event.clientX,
       y: event.clientY
     }))
 
     const touchMove$ = Rx.Observable
-    .fromEvent(docElm, 'touchmove')
+    .fromEvent(this.hoverCard, 'touchmove')
     .map(event => ({
       x: event.touches[0].clientX,
       y: event.touches[0].clientY
@@ -37,11 +55,15 @@ class HoverCard extends Component {
 
     smoothMove$.subscribe(pos => {
       // needs some math to force the values to end up being between a range of -25 and 25
-      const rotX = Math.round(((pos.y / clientHeight * -35) + 45) * 100) / 100
-      const rotY = Math.round(((pos.x / clientWidth * 35) - 25) * 100) / 100
+      const rotX = Math.round((((pos.y - cardPos.top) / cardHeight * -50) + 20) * 100) / 100
+      const rotY = Math.round((((pos.x - cardPos.left) / cardWidth * 50) - 25) * 100) / 100
+      console.log(rotX, rotY)
 
       // "this.hoverCard" currently prevents this logic from being put into another file
       this.hoverCard.style.cssText = `
+        transform: rotateX(${rotX}deg) rotateY(${rotY}deg);
+      `
+      this.hoverLabel.style.cssText = `
         transform: rotateX(${rotX}deg) rotateY(${rotY}deg);
       `
     })
@@ -49,7 +71,10 @@ class HoverCard extends Component {
 
   render() {
     return (
-      <StyledImg {...this.props} innerRef={card => this.hoverCard = card} alt="" />
+      <div {...this.props} style={{position: "relative"} }>
+        <StyledLabel innerRef={label => this.hoverLabel = label}>Test</StyledLabel>
+        <StyledImg {...this.props} innerRef={card => this.hoverCard = card} alt="" />
+      </div>
     )
   }
 }
