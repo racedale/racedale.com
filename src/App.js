@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/fontawesome-free-solid'
@@ -75,28 +75,44 @@ const Description = styled.div`
   padding: 0 0.5rem;
 `
 
-const changeCard = function(event) {
-  console.log(event)
-}
 
-const App = () => (
-  <Container className="text-center">
-    <Circle src="images/ren.jpg" />
-    <Header>
-      <h1>First Last</h1>
-    </Header>
-    <Introduction>
-      A portfolio site, made in ReactJS. Now on GitLab, things are about to get fancy!
-      Now with text that is twice as long because I need to figure out how to get this to layout properly.
-    </Introduction>
-    <LeftArrow icon={faAngleLeft} size="5x" onClick={changeCard} />
-    <StyledHoverCard src="images/test.png"/>
-    <Description>
-      Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
-      Built with: ReactJS, GraphQL, Styled Components
-    </Description>
-    <RightArrow icon={faAngleRight} size="5x" onClick={changeCard} />
-  </Container>
-);
+class App extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      cardImage: 'images/test.png',
+      cardDescription: `Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
+      Built with: ReactJS, GraphQL, Styled Components`
+    }
+  }
+
+  changeCard(event) {
+    this.setState({
+      cardImage: 'images/desk.jpg'
+    })
+  }
+
+  render() {
+    return (
+      <Container className="text-center">
+        <Circle src="images/ren.jpg" />
+        <Header>
+          <h1>First Last</h1>
+        </Header>
+        <Introduction>
+          A portfolio site, made in ReactJS. Now on GitLab, things are about to get fancy!
+          Now with text that is twice as long because I need to figure out how to get this to layout properly.
+        </Introduction>
+        <LeftArrow icon={faAngleLeft} size="5x" onClick={this.changeCard.bind(this)} />
+        <StyledHoverCard src={this.state.cardImage} />
+        <Description>
+          {this.state.cardDescription}
+        </Description>
+        <RightArrow icon={faAngleRight} size="5x" onClick={this.changeCard.bind(this)} />
+      </Container>
+    )
+  }
+}
 
 export default App;
