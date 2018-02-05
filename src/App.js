@@ -81,14 +81,23 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      cardTitle: 'Whatever',
       cardImage: 'images/test.png',
       cardDescription: `Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
       Built with: ReactJS, GraphQL, Styled Components`
     }
   }
 
-  changeCard(event) {
+  changeCardPrev(event) {
     this.setState({
+      cardTitle: 'Prev',
+      cardImage: 'images/desk.jpg'
+    })
+  }
+
+  changeCardNext(event) {
+    this.setState({
+      cardTitle: 'Next',
       cardImage: 'images/desk.jpg'
     })
   }
@@ -104,12 +113,12 @@ class App extends Component {
           A portfolio site, made in ReactJS. Now on GitLab, things are about to get fancy!
           Now with text that is twice as long because I need to figure out how to get this to layout properly.
         </Introduction>
-        <LeftArrow icon={faAngleLeft} size="5x" onClick={this.changeCard.bind(this)} />
-        <StyledHoverCard src={this.state.cardImage} />
+        <LeftArrow id="left-arrow" icon={faAngleLeft} size="5x" onClick={this.changeCardPrev.bind(this)} />
+        <StyledHoverCard title={this.state.cardTitle} src={this.state.cardImage} />
         <Description>
           {this.state.cardDescription}
         </Description>
-        <RightArrow icon={faAngleRight} size="5x" onClick={this.changeCard.bind(this)} />
+        <RightArrow id="right-arrow" icon={faAngleRight} size="5x" onClick={this.changeCardNext.bind(this)} />
       </Container>
     )
   }
