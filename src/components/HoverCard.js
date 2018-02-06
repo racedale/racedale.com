@@ -55,8 +55,8 @@ class HoverCard extends Component {
 
     smoothMove$.subscribe(pos => {
       // needs some math to force the values to end up being between a range of -25 and 25
-      const rotX = Math.round((((pos.y - cardPos.top) / cardHeight * -50) + 20) * 100) / 100
-      const rotY = Math.round((((pos.x - cardPos.left) / cardWidth * 50) - 25) * 100) / 100
+      const rotX = Math.round((((pos.y - cardPos.top) / (cardHeight * -0.05)) + 10) * 100) / 100
+      const rotY = Math.round((((pos.x - cardPos.left) / (cardWidth * 0.05)) - 10) * 100) / 100
 
       // "this.hoverCard" currently prevents this logic from being put into another file
       this.hoverCard.style.cssText = `
