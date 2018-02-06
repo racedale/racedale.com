@@ -81,24 +81,39 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      cardTitle: 'Whatever',
-      cardImage: 'images/test.png',
-      cardDescription: `Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
-      Built with: ReactJS, GraphQL, Styled Components`
+      cards: [
+        {
+          cardTitle: 'Prev',
+          cardImage: 'images/test.png',
+          cardDescription: `Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
+          Built with: ReactJS, GraphQL, Styled Components`
+        },
+        {
+          cardTitle: 'Whatever',
+          cardImage: 'images/test.png',
+          cardDescription: `Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
+          Built with: ReactJS, GraphQL, Styled Components`
+        },
+        {
+          cardTitle: 'Next',
+          cardImage: 'images/test.png',
+          cardDescription: `Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
+          Built with: ReactJS, GraphQL, Styled Components`
+        }
+      ]
     }
   }
 
   changeCardPrev(event) {
+    this.state.cards.unshift(this.state.cards.pop())
     this.setState({
-      cardTitle: 'Prev',
-      cardImage: 'images/desk.jpg'
+      cards: this.state.cards.reduce((prev, current, index) =>  prev.concat(current), [])
     })
   }
 
   changeCardNext(event) {
     this.setState({
-      cardTitle: 'Next',
-      cardImage: 'images/desk.jpg'
+      cards: this.state.cards.concat(this.state.cards.shift())
     })
   }
 
@@ -114,9 +129,9 @@ class App extends Component {
           Now with text that is twice as long because I need to figure out how to get this to layout properly.
         </Introduction>
         <LeftArrow id="left-arrow" icon={faAngleLeft} size="5x" onClick={this.changeCardPrev.bind(this)} />
-        <StyledHoverCard title={this.state.cardTitle} src={this.state.cardImage} />
+        <StyledHoverCard title={this.state.cards[0].cardTitle} src={this.state.cards[0].cardImage} />
         <Description>
-          {this.state.cardDescription}
+          {this.state.cards[0].cardDescription}
         </Description>
         <RightArrow id="right-arrow" icon={faAngleRight} size="5x" onClick={this.changeCardNext.bind(this)} />
       </Container>
