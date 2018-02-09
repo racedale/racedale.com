@@ -11,14 +11,15 @@ const StyledLabel = styled.label`
   box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.8);
   transform-style: preserve-3d;
   background-color: var(--bright-green);
-  bottom: 2rem;
+  top: 22vw;
   color: var(--dark);
   font-size: 1.5rem;
   font-weight: 900;
   letter-spacing: 0.5rem;
   padding: 1rem;
   position: absolute;
-  width: 14rem;
+  min-width: 10rem;
+  width: 20vw;
   z-index: 1;
 `
 

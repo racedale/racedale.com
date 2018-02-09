@@ -19,6 +19,7 @@ const Header = styled.header`
   border-top: 2px solid var(--bright-green);
   color: var(--light);
   padding-top: 1.5rem;
+  padding-left: 1.5rem;
   letter-spacing: 2rem;
   text-transform: uppercase;
   h1 {
@@ -27,10 +28,10 @@ const Header = styled.header`
 `
 
 const Circle = styled.div`
-  width: 100px;
-  height: 100px;
-  left: 7.5%;
-  top: 5%;
+  width: 10vw;
+  height: 10vw;
+  left: calc(1.5rem);
+  top: calc(1.5rem);
   border-radius: 50%;
   background: url(${props => props.src}) center no-repeat;
   background-size: 250%;
