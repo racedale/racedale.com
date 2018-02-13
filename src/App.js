@@ -6,24 +6,23 @@ import HoverCard from './components/HoverCard'
 
 
 const Container = styled.div`
-  display: grid;
-  grid-template-rows: 2fr 1fr 1fr 2fr 5fr 0.5;
-  grid-template-columns: 0.5fr 1fr 1fr 1fr 5fr 3fr 1fr 0.5fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 `
 
 const Header = styled.header`
-  grid-column: 1 / -1;
-  grid-row: span 2;
+  flex: 1 0 100%;
   align-self: end;
   background-color: var(--dark-green);
   border-top: 2px solid var(--bright-green);
   color: var(--light);
   padding-top: 1.5rem;
-  padding-left: 1.5rem;
   letter-spacing: 2rem;
   text-transform: uppercase;
   h1 {
     margin-bottom: -0.5rem;
+    padding-left: 2.5rem;
   }
 `
 
@@ -41,15 +40,19 @@ const Circle = styled.div`
 `
 
 const Introduction = styled.p`
-  grid-column: 5 / 8;
+  flex: 0 1 80%;
   line-height: 1.5rem;
   height: 100px;
-  min-height: 100%;
+`
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 0.5fr 1fr 1fr 1fr 5fr 3fr 1fr 0.5fr;
 `
 
 const LeftArrow = styled(FontAwesomeIcon)`
   grid-column-start: 2;
-  grid-row-start: 4;
   align-self: center;
   &:hover {
     cursor: pointer;
@@ -57,7 +60,6 @@ const LeftArrow = styled(FontAwesomeIcon)`
 `
 const RightArrow = styled(FontAwesomeIcon)`
   grid-column-start: -3;
-  grid-row-start: 4;
   align-self: center;
   justify-self: end;
   &:hover {
@@ -66,12 +68,10 @@ const RightArrow = styled(FontAwesomeIcon)`
 `
 const StyledHoverCard = styled(HoverCard)`
   grid-column: 3 / 6;
-  grid-row: 4;
   max-width: 100%;
 `
 const Description = styled.div`
   grid-column: 6 / 7;
-  grid-row: 4;
   line-height: 1.5rem;
   padding: 0 0.5rem;
 `
@@ -129,12 +129,14 @@ class App extends Component {
           A portfolio site, made in ReactJS. Now on GitLab, things are about to get fancy!
           Now with text that is twice as long because I need to figure out how to get this to layout properly.
         </Introduction>
-        <LeftArrow id="left-arrow" icon={faAngleLeft} size="5x" onClick={this.changeCardPrev.bind(this)} />
-        <StyledHoverCard title={this.state.cards[0].cardTitle} src={this.state.cards[0].cardImage} />
-        <Description>
-          {this.state.cards[0].cardDescription}
-        </Description>
-        <RightArrow id="right-arrow" icon={faAngleRight} size="5x" onClick={this.changeCardNext.bind(this)} />
+        <Grid>
+          <LeftArrow id="left-arrow" icon={faAngleLeft} size="5x" onClick={this.changeCardPrev.bind(this)} />
+          <StyledHoverCard title={this.state.cards[0].cardTitle} src={this.state.cards[0].cardImage} />
+          <Description>
+            {this.state.cards[0].cardDescription}
+          </Description>
+          <RightArrow id="right-arrow" icon={faAngleRight} size="5x" onClick={this.changeCardNext.bind(this)} />
+        </Grid>
       </Container>
     )
   }
