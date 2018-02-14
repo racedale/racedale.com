@@ -28,7 +28,7 @@ class HoverCard extends Component {
   componentDidMount() {
     // "this.hoverCard" currently prevents this logic from being put into another file
     const cardPos = this.hoverCard.getBoundingClientRect()
-    const { clientWidth: cardWidth, clientHeight: cardHeight } = this.hoverCard
+    // const { clientWidth: cardWidth, clientHeight: cardHeight } = this.hoverCard
     // const { clientWidth: docWidth, clientHeight: docHeight } = document.documentElement
     // const widthRatio = cardWidth / docWidth
     // const heightRatio = cardHeight / docHeight
@@ -56,8 +56,8 @@ class HoverCard extends Component {
 
     smoothMove$.subscribe(pos => {
       // needs some math to force the values to end up being between a range of -25 and 25
-      const rotX = Math.round((((pos.y - cardPos.top) / (cardHeight * -0.05)) + 10) * 100) / 100
-      const rotY = Math.round((((pos.x - cardPos.left) / (cardWidth * 0.05)) - 10) * 100) / 100
+      const rotX = Math.round((((pos.y - cardPos.top) / (this.hoverCard.clientHeight * -0.05)) + 10) * 100) / 100
+      const rotY = Math.round((((pos.x - cardPos.left) / (this.hoverCard.clientWidth * 0.05)) - 10) * 100) / 100
 
       // "this.hoverCard" currently prevents this logic from being put into another file
       this.hoverCard.style.cssText = `
@@ -72,8 +72,14 @@ class HoverCard extends Component {
   render() {
     return (
       <div {...this.props} style={{position: "relative"} }>
-        <StyledLabel innerRef={label => this.hoverLabel = label}>{this.props.title}</StyledLabel>
-        <StyledImg {...this.props} innerRef={card => this.hoverCard = card} alt="" />
+        <StyledLabel
+          innerRef={label => this.hoverLabel = label}>
+          {this.props.title}
+        </StyledLabel>
+        <StyledImg {...this.props}
+          innerRef={card => this.hoverCard = card}
+          alt=""
+        />
       </div>
     )
   }
