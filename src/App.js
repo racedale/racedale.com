@@ -84,22 +84,22 @@ class App extends Component {
     this.state = {
       cards: [
         {
-          cardTitle: 'Prev',
-          cardImage: 'images/test.png',
+          cardTitle: 'TMN',
+          cardImage: 'images/tmn.truman.edu-cropped.png',
           cardDescription: `Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
-          Built with: ReactJS, GraphQL, Styled Components`
+          Built with: Wordpress, Advanced Custom Fields`
         },
         {
-          cardTitle: 'Whatever',
-          cardImage: 'images/test.png',
+          cardTitle: 'APO',
+          cardImage: 'images/apo.truman.edu-cropped.png',
           cardDescription: `Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
-          Built with: ReactJS, GraphQL, Styled Components`
+          Built with: PHP, MySQL`
         },
         {
-          cardTitle: 'Next',
-          cardImage: 'images/test.png',
+          cardTitle: 'Evolve24',
+          cardImage: 'images/evolve24.com-cropped.png',
           cardDescription: `Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
-          Built with: ReactJS, GraphQL, Styled Components`
+          Built with: WordPress, Timber, Twig`
         }
       ]
     }
