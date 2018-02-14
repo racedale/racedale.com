@@ -13,7 +13,6 @@ const Container = styled.div`
 
 const Header = styled.header`
   flex: 1 0 100%;
-  align-self: end;
   background-color: var(--dark-green);
   border-top: 2px solid var(--bright-green);
   color: var(--light);
@@ -40,9 +39,10 @@ const Circle = styled.div`
 `
 
 const Introduction = styled.p`
-  flex: 0 1 80%;
+  flex: 0 1 60%;
   line-height: 1.5rem;
   height: 100px;
+  margin-right: 5vw;
 `
 
 const Grid = styled.div`
