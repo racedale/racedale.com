@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import Rx from 'rxjs/Rx';
 import styled from 'styled-components';
 
@@ -9,7 +10,7 @@ const StyledImg = styled.img`
 `
 
 const StyledLabel = styled.label`
-  box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.8);
+box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.8);
   transform-style: preserve-3d;
   background-color: var(--bright-green);
   top: 22vw;
@@ -26,6 +27,13 @@ const StyledLabel = styled.label`
 `
 
 class HoverCard extends Component {
+  static contextTypes = {
+    router: PropTypes.object
+  }
+
+  constructor(props, context) {
+    super(props, context)
+  }
 
   componentDidMount() {
     // "this.hoverCard" currently prevents this logic from being put into another file
@@ -71,6 +79,10 @@ class HoverCard extends Component {
     })
   }
 
+  loadCard() {
+    this.context.router.history.push(this.props.card.cardTitle)
+  }
+
   render() {
     return (
       <div {...this.props} style={{position: "relative"} }>
@@ -81,6 +93,7 @@ class HoverCard extends Component {
         <StyledImg {...this.props}
           src={this.props.card.cardImage}
           innerRef={card => this.hoverCard = card}
+          onClick={this.loadCard.bind(this)}
           alt=""
         />
       </div>
