@@ -9,6 +9,7 @@
 }
 body {
   background: linear-gradient(30deg, var(--light), #FFFCEE);
+  background-image: url('/images/sayagata-400px.png');
   box-sizing: border-box;
   color: var(--dark);
   margin: 0;
