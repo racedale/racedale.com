@@ -31,10 +31,6 @@ class HoverCard extends Component {
     router: PropTypes.object
   }
 
-  constructor(props, context) {
-    super(props, context)
-  }
-
   componentDidMount() {
     // "this.hoverCard" currently prevents this logic from being put into another file
     const cardPos = this.hoverCard.getBoundingClientRect()
