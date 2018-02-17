@@ -74,9 +74,10 @@ class HoverCard extends Component {
       <div {...this.props} style={{position: "relative"} }>
         <StyledLabel
           innerRef={label => this.hoverLabel = label}>
-          {this.props.title}
+          {this.props.card.cardTitle}
         </StyledLabel>
         <StyledImg {...this.props}
+          src={this.props.card.cardImage}
           innerRef={card => this.hoverCard = card}
           alt=""
         />

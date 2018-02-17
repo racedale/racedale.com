@@ -130,12 +130,24 @@ class App extends Component {
           Now with text that is twice as long because I need to figure out how to get this to layout properly.
         </Introduction>
         <Grid>
-          <LeftArrow id="left-arrow" icon={faAngleLeft} size="5x" onClick={this.changeCardPrev.bind(this)} />
-          <StyledHoverCard title={this.state.cards[0].cardTitle} src={this.state.cards[0].cardImage} />
+          <LeftArrow
+            id="left-arrow"
+            icon={faAngleLeft}
+            size="5x"
+            onClick={this.changeCardPrev.bind(this)}
+          />
+          <StyledHoverCard
+            card={this.state.cards[0]}
+          />
           <Description>
             {this.state.cards[0].cardDescription}
           </Description>
-          <RightArrow id="right-arrow" icon={faAngleRight} size="5x" onClick={this.changeCardNext.bind(this)} />
+          <RightArrow
+            id="right-arrow"
+            icon={faAngleRight}
+            size="5x"
+            onClick={this.changeCardNext.bind(this)}
+          />
         </Grid>
       </Container>
     )
