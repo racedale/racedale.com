@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const StyledImg = styled.img`
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.8);
   transform-style: preserve-3d;
+  cursor: pointer;
 `
 
 const StyledLabel = styled.label`
@@ -13,6 +14,7 @@ const StyledLabel = styled.label`
   background-color: var(--bright-green);
   top: 22vw;
   color: var(--dark);
+  cursor: pointer;
   font-size: 1.5rem;
   font-weight: 900;
   letter-spacing: 0.5rem;

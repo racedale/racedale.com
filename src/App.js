@@ -79,26 +79,29 @@ const Description = styled.div`
 
 class App extends Component {
 
-  constructor(props) {
+  constructor(props, context) {
     super(props)
+
     this.state = {
       cards: [
         {
           cardTitle: 'TMN',
           cardImage: 'images/tmn.truman.edu-cropped.png',
-          cardDescription: `Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
+          cardDescription: `Created Wordpress theme for a news site with hundreds of legacy articles.
+          Emphasis on page load time and having spaces for advertisements that could be varying sizes.
           Built with: Wordpress, Advanced Custom Fields`
         },
         {
           cardTitle: 'APO',
           cardImage: 'images/apo.truman.edu-cropped.png',
-          cardDescription: `Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
+          cardDescription: `Custom site for a service organization to be able to manage 300+ members information and log service hours.
           Built with: PHP, MySQL`
         },
         {
           cardTitle: 'Evolve24',
           cardImage: 'images/evolve24.com-cropped.png',
-          cardDescription: `Little informational blurb about the technical aspects of whatever the heck this is and explaining the process of building it and why the heck it’s so freaking awesome, ya know?
+          cardDescription: `Marketing focused site for a data analytics company.
+          Emphasis on non-technical people being able to make updates.
           Built with: WordPress, Timber, Twig`
         }
       ]
