@@ -35,19 +35,19 @@ class HoverCard extends Component {
     // "this.hoverCard" currently prevents this logic from being put into another file
     const cardPos = this.hoverCard.getBoundingClientRect()
     // const { clientWidth: cardWidth, clientHeight: cardHeight } = this.hoverCard
-    // const { clientWidth: docWidth, clientHeight: docHeight } = document.documentElement
+    const { clientWidth: docWidth, clientHeight: docHeight } = document.documentElement
     // const widthRatio = cardWidth / docWidth
     // const heightRatio = cardHeight / docHeight
 
     const mouseMove$ = Rx.Observable
-    .fromEvent(this.hoverCard, 'mousemove')
+    .fromEvent(document.documentElement, 'mousemove')
     .map(event => ({
       x: event.clientX,
       y: event.clientY
     }))
 
     const touchMove$ = Rx.Observable
-    .fromEvent(this.hoverCard, 'touchmove')
+    .fromEvent(document.documentElement, 'touchmove')
     .map(event => ({
       x: event.touches[0].clientX,
       y: event.touches[0].clientY
@@ -62,8 +62,10 @@ class HoverCard extends Component {
 
     smoothMove$.subscribe(pos => {
       // needs some math to force the values to end up being between a range of -25 and 25
-      const rotX = Math.round((((pos.y - cardPos.top) / (this.hoverCard.clientHeight * -0.05)) + 10) * 100) / 100
-      const rotY = Math.round((((pos.x - cardPos.left) / (this.hoverCard.clientWidth * 0.05)) - 10) * 100) / 100
+      // const rotX = Math.round((((pos.y - cardPos.top) / (this.hoverCard.clientHeight * -0.05)) + 10) * 100) / 100
+      // const rotY = Math.round((((pos.x - cardPos.left) / (this.hoverCard.clientWidth * 0.05)) - 10) * 100) / 100
+      const rotX = Math.round(((pos.y  / docHeight * -30) + 15) * 100) / 100
+      const rotY = Math.round(((pos.x / docWidth * 30) - 15) * 100) / 100
 
       // "this.hoverCard" currently prevents this logic from being put into another file
       this.hoverCard.style.cssText = `
