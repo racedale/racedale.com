@@ -33,7 +33,7 @@ class HoverCard extends Component {
 
   componentDidMount() {
     // "this.hoverCard" currently prevents this logic from being put into another file
-    const cardPos = this.hoverCard.getBoundingClientRect()
+    // const cardPos = this.hoverCard.getBoundingClientRect()
     // const { clientWidth: cardWidth, clientHeight: cardHeight } = this.hoverCard
     const { clientWidth: docWidth, clientHeight: docHeight } = document.documentElement
     // const widthRatio = cardWidth / docWidth
@@ -68,17 +68,19 @@ class HoverCard extends Component {
       const rotY = Math.round(((pos.x / docWidth * 30) - 15) * 100) / 100
 
       // "this.hoverCard" currently prevents this logic from being put into another file
-      this.hoverCard.style.cssText = `
-        transform: rotateX(${rotX}deg) rotateY(${rotY}deg);
-      `
-      this.hoverLabel.style.cssText = `
-        transform: rotateX(${rotX}deg) rotateY(${rotY}deg);
-      `
+      if(this.hoverCard && this.hoverLabel) {
+        this.hoverCard.style.cssText = `
+          transform: rotateX(${rotX}deg) rotateY(${rotY}deg);
+        `
+        this.hoverLabel.style.cssText = `
+          transform: rotateX(${rotX}deg) rotateY(${rotY}deg);
+        `
+      }
     })
   }
 
   loadCard() {
-    this.context.router.history.push(this.props.card.cardTitle)
+    this.context.router.history.push(`details/${this.props.card.cardTitle}`)
   }
 
   render() {
