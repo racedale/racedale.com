@@ -1,7 +1,27 @@
 # racedale.com
-ReactJS portfolio site
 
+This is a [Next.js](https://nextjs.org) app deployed to Cloudflare Workers with the help of [OpenNext](https://opennext.js.org/cloudflare/get-started).
 
-Since I’m entering the job market I thought it to be almost necessary that I have better way of advertising myself.  For the main reason of so I can be hired by a big company and make big money, but also for the reason of being hired for small freelance contracts while I work at smaller companies.  Previously my website was just a plain single page site that talked about myself and had some pictures on it.  I wanted to take a leap forward from that and make the site more interactive.  
+## Getting Started
 
-Rather than having pictures of my past work, I made it so you can click on a thumbnail and it opens a preview window of each website.  You can then scroll through them (and it’s the real websites, not a copy) and get a feel for the interactions that they provide.  I needed to have some sections where I talked about myself personally and my professional opinions on web technologies.  The new site is built on React which is a up-and-coming JavaScript framework in the works by Facebook.  It’s crazy fast at loading due to the ways it processes through the page layout, so it helped out with page loading times since there are so many resources it needs to load all at once to display the preview windows.  I had other plans for creating an interactive contact form at the top, but unfortunately the amount of work and the timespan prevented that feature from being finished.  When it is, I’ll be able to move the project to the root of my site.
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Learn More
+[Next on Cloudflare](https://developers.cloudflare.com/workers/frameworks/framework-guides/nextjs/)
+
+## Deploy to Cloudflare
+
+`npx wrangler login`
+`npm run deploy`
