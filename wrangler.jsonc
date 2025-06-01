@@ -5,10 +5,10 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "public-site",
-  "compatibility_date": "2025-04-04",
+  "compatibility_date": "2025-05-05",
   "main": "./workers/app.ts",
   "vars": {
-    "VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare"
+    "FF_NAV_ENABLED": false
   },
   "workers_dev": false,
   "routes": [

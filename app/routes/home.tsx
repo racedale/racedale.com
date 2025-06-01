@@ -1,3 +1,4 @@
+import Nav from '../components/Nav';
 import type { Route } from './+types/home';
 
 export function meta({}: Route.MetaArgs) {
@@ -11,12 +12,13 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export function loader({ context }: Route.LoaderArgs) {
-  return { message: context.cloudflare.env.VALUE_FROM_CLOUDFLARE };
+  return { shouldShowNav: context.cloudflare.env.FF_NAV_ENABLED };
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+      {loaderData.shouldShowNav ? <Nav /> : null}
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <h1 className="text-3xl md:text-5xl font-extrabold">
           Self-taught Full-Stack dev since 2015
@@ -54,7 +56,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
             ✉️ Contact
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
+            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-gray-100 dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
             href="https://github.com/racedale"
             target="_blank"
             rel="noopener noreferrer"
