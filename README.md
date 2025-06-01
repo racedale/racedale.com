@@ -1,27 +1,67 @@
 # racedale.com
 
-This is a [Next.js](https://nextjs.org) app deployed to Cloudflare Workers with the help of [OpenNext](https://opennext.js.org/cloudflare/get-started).
+## Features
+
+- 🚀 Server-side rendering
+- 🔒 TypeScript
+- 🎉 [TailwindCSS](https://tailwindcss.com/) for styling
+- 📖 [React Router v7](https://reactrouter.com/)
+- ☁️ [Cloudflare Workers](https://developers.cloudflare.com/workers/frameworks/) for hosting
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+### Development
+
+Start the development server with HMR:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Your application will be available at `http://localhost:5173`.
 
-## Learn More
-[Next on Cloudflare](https://developers.cloudflare.com/workers/frameworks/framework-guides/nextjs/)
+## Previewing the Production Build
 
-## Deploy to Cloudflare
+Preview the production build locally:
 
-`npx wrangler login`
-`npm run deploy`
+```bash
+npm run preview
+```
+
+## Building for Production
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+## Deployment
+
+Deployment is done using the Wrangler CLI.
+
+To build and deploy directly to production:
+
+```sh
+npm run deploy
+```
+
+To deploy a preview URL:
+
+```sh
+npx wrangler versions upload
+```
+
+You can then promote a version to production after verification or roll it out progressively.
+
+```sh
+npx wrangler versions deploy
+```
