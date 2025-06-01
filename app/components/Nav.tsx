@@ -9,7 +9,7 @@ export default function Nav({}) {
             <Link to="/">
               <img
                 className="h-8 w-auto px-2 dark:invert"
-                src="./public/favicon.ico"
+                src="/favicon.ico"
                 alt="Simple race car logo"
               />
             </Link>
