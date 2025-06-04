@@ -6,11 +6,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "public-site",
   "compatibility_date": "2025-05-05",
-  "compatibility_flags": ["nodejs_compat"],
-  "main": "./.output/server/index.mjs",
-  "assets": {
-    "directory": "./.output/public/"
-  },
+  "main": "./workers/app.ts",
   "vars": {
     "FF_NAV_ENABLED": true
   },
