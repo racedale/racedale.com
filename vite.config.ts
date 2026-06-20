@@ -1,16 +1,17 @@
 import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 import { defineConfig } from 'vite';
-import tsConfigPaths from 'vite-tsconfig-paths';
 import tailwindcss from '@tailwindcss/vite';
 import { cloudflare } from '@cloudflare/vite-plugin';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  resolve: {
+    tsconfigPaths: true,
+  },
   plugins: [
     tailwindcss(),
-    tsConfigPaths({
-      projects: ['./tsconfig.json'],
-    }),
     tanstackStart(),
+    react(),
     // cloudflare(),
   ],
 });
