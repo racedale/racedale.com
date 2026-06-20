@@ -8,7 +8,7 @@ export type PostType = {
 }
 
 export const fetchPost = createServerFn()
-  .inputValidator((d: string) => d)
+  .validator((d: string) => d)
   .handler(async ({ data }) => {
     console.info(`Fetching post with id ${data}...`)
     const res = await fetch(

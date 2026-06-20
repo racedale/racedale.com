@@ -1,6 +1,13 @@
 {
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["archive/**/*", "node_modules", ".tanstack-start", ".nitro", ".output", "dist"],
+  "exclude": [
+    "archive/**/*",
+    "node_modules",
+    ".tanstack-start",
+    ".nitro",
+    ".output",
+    "dist"
+  ],
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
@@ -14,7 +21,6 @@
     "target": "ES2022",
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
     },
