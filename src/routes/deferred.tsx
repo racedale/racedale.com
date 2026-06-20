@@ -3,13 +3,13 @@ import { createServerFn } from '@tanstack/react-start';
 import { Suspense, useState } from 'react';
 
 const personServerFn = createServerFn({ method: 'GET' })
-  .validator((d: string) => d)
+  .inputValidator((d: string) => d)
   .handler(({ data: name }) => {
     return { name, randomNumber: Math.floor(Math.random() * 100) };
   });
 
 const slowServerFn = createServerFn({ method: 'GET' })
-  .validator((d: string) => d)
+  .inputValidator((d: string) => d)
   .handler(async ({ data: name }) => {
     await new Promise((r) => setTimeout(r, 1000));
     return { name, randomNumber: Math.floor(Math.random() * 100) };
@@ -40,7 +40,7 @@ function Deferred() {
       <Suspense fallback={<div>Loading person...</div>}>
         <Await
           promise={deferredPerson}
-          children={(data) => (
+          children={(data: { name: string; randomNumber: number }) => (
             <div data-testid="deferred-person">
               {data.name} - {data.randomNumber}
             </div>

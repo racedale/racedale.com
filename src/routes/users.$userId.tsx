@@ -2,6 +2,8 @@ import { createFileRoute } from '@tanstack/react-router'
 import { NotFound } from 'src/components/NotFound'
 import { UserErrorComponent } from 'src/components/UserError'
 
+type UserData = { id: number; name: string; email: string }
+
 export const Route = createFileRoute('/users/$userId')({
   loader: async ({ params: { userId } }) => {
     try {
@@ -10,7 +12,7 @@ export const Route = createFileRoute('/users/$userId')({
         throw new Error('Unexpected status code')
       }
 
-      const data = await res.json()
+      const data = (await res.json()) as UserData
 
       return data
     } catch {

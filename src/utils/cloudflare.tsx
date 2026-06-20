@@ -1,7 +1,7 @@
 import {
   createMiddleware,
   createServerFn,
-  registerGlobalMiddleware,
+  createStart,
 } from '@tanstack/react-start';
 
 // export async function getBindings() {
@@ -24,9 +24,9 @@ const cloudflareContext = createMiddleware({ type: 'function' }).server(
   }
 );
 
-registerGlobalMiddleware({
-  middleware: [cloudflareContext],
-});
+export default createStart(() => ({
+  functionMiddleware: [cloudflareContext],
+}));
 
 const fn = createServerFn()
   .middleware([cloudflareContext])

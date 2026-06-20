@@ -1,5 +1,6 @@
 {
   "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["archive/**/*", "node_modules", ".tanstack-start", ".nitro", ".output", "dist"],
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
